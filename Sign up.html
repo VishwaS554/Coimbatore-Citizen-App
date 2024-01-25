@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .signup-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            height: 100%;
+            width: 100%;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: rgb(90, 134, 14);
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: rgb(90, 134, 14);
+        }
+        .radio-group {
+    display: flex;
+    flex-direction: row;
+    margin-left:30%;
+}
+    </style>
+</head>
+<body >
+
+    <div class="signup-container" style="background-color: rgb(226, 240, 190);">
+        <h1>Sign Up</h1>
+        
+        <form action="connect.php" method="post">
+           
+            <input type="text" name="FirstName" id="FirstName" placeholder="First Name" required>
+            <br>
+            <input type="text" name="MiddleName" id="MiddleName" placeholder="Middle Name" required>
+            <br>
+            <input type="text" name="LastName" id="LastName" placeholder="Last Name" required>
+            <br>
+            <div class="radio-group">
+                <label for="Male">
+                    Male
+                    <input type="radio" name="Gender" id="Male">
+                </label>&nbsp&nbsp&nbsp
+                <label for="Female">
+                    Female
+                    <input type="radio" name="Gender" id="Female">
+                </label>
+            </div>            
+            <input type="number" name="Age" id="Age" placeholder="Age" required>
+            <br>
+            <input type="email" name="Email" id="Email" placeholder="Email" required>
+            <br>
+            <input type="password" name="Password" id="Password" placeholder="Password" required>
+            <br>
+            <input type="number" name="AadharNumber" id="AadharNumber" placeholder="Aadhar Number" required>
+            <br>
+            <input type="number" name="PhoneNumber" id="PhoneNumber" placeholder="Phone Number" required>
+            <br><br>
+            <button type="submit">Sign Up</button>
+            <br>
+        </form>
+    </div>
+
+</body>
+</html>
