@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: rgb(226, 240, 190); /* light green background */
+        }
+
+        #profile-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff; /* white background for the container */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        #header {
+            background-color: #006400; /* dark green header background */
+            color: #fff; /* white header text color */
+            padding: 10px;
+            text-align: left;
+        }
+
+        #back-arrow {
+            font-size: 20px;
+            margin-right: 10px;
+            text-decoration: none; /* Remove underline from the anchor */
+            color: #fff; /* Set text color for the anchor */
+            cursor: pointer;
+        }
+
+        #user-profile {
+            padding: 20px;
+            color: #006400; /* dark green text */
+            text-align: center; /* Center-align the content */
+        }
+
+        #user-profile img {
+            max-width: 50%;
+            height: auto;
+            border-radius: 50%;
+            display: block; /* Make the image a block element */
+            margin: 0 auto; /* Center the image horizontally */
+        }
+
+        h2 {
+            color: #006400; /* dark green heading */
+        }
+
+        p {
+            color: #006400; /* dark green text */
+        }
+
+        #edit-button {
+            margin-top: 10px;
+            cursor: pointer;
+            color: #e0e6e0; /* dark green button text */
+           
+            background:  #006400;
+            
+            padding: 10;
+            font-size: inherit;
+        }
+
+        #edit-form {
+            display: none;
+            padding: 20px;
+            background-color: #ffffff; /* white background for the form */
+            color: #006400; /* dark green text */
+        }
+
+        input {
+            margin-bottom: 10px;
+            padding: 8px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #006400; /* dark green button background */
+            color: #fff; /* white button text */
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="profile-container">
+        <div id="header">
+            <a id="back-arrow" href="Home.html">&larr;</a> Profile
+        </div>
+        <div id="user-profile">
+            <img src="https://cdn.vectorstock.com/i/1000x1000/17/61/male-avatar-profile-picture-vector-10211761.webp" alt="User Profile Picture">
+            <h2 id="full-name">John Doe</h2>
+            <p id="gender">Gender: Male</p>
+            <p id="age">Age: 30</p>
+            <p id="user-email">Email: john.doe@gmail.com</p>
+            <p id="aadhar-number">Aadhar Number: 1234 5678 9012</p>
+            <p id="phone-number">Phone Number: +1 123-456-7890</p>
+            <button id="edit-button" onclick="toggleEdit()">Edit</button>
+
+            <form id="edit-form" style="display: none;">
+                <!-- Add input fields for editing user information -->
+                First Name: <input type="text" id="edit-first-name"><br>
+                Middle Name: <input type="text" id="edit-middle-name"><br>
+                Last Name: <input type="text" id="edit-last-name"><br>
+                Gender: <input type="text" id="edit-gender"><br>
+                Age: <input type="number" id="edit-age"><br>
+                Email: <input type="email" id="edit-email"><br>
+                Aadhar Number: <input type="text" id="edit-aadhar-number"><br>
+                Phone Number: <input type="text" id="edit-phone-number"><br>
+                <button type="button" onclick="saveChanges()">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const user = {
+            firstName: 'John',
+            middleName: '',
+            lastName: 'Doe',
+            gender: 'Male',
+            age: 30,
+            email: 'john.doe@gmail.com',
+            aadharNumber: '739856748805',
+            phoneNumber: '92664 53388'
+        };
+
+        function toggleEdit() {
+            const userProfile = document.getElementById('user-profile');
+            const editForm = document.getElementById('edit-form');
+
+            userProfile.style.display = userProfile.style.display === 'none' ? 'block' : 'none';
+            editForm.style.display = editForm.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function saveChanges() {
+            // Implement logic to save changes to the backend
+            // For simplicity, let's just switch back to the display mode
+            toggleEdit();
+        }
+
+        // Populate initial user data
+        document.getElementById('full-name').textContent = `${user.firstName} ${user.middleName} ${user.lastName}`;
+        document.getElementById('gender').textContent = `Gender: ${user.gender}`;
+        document.getElementById('age').textContent = `Age: ${user.age}`;
+        document.getElementById('user-email').textContent = `Email: ${user.email}`;
+        document.getElementById('aadhar-number').textContent = `Aadhar Number: ${user.aadharNumber}`;
+        document.getElementById('phone-number').textContent = `Phone Number: ${user.phoneNumber}`;
+    </script>
+</body>
+</html>
