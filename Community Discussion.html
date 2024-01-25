@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Community Discussion</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='Community Discussion.css'>
+</head>
+<body style="background-color:rgb(226, 240, 190) ;">
+    <div class="container-fluid" >
+        <div class="row" >
+            <div class="col heading">
+                <h2 class="text-white my-2 mx-1">Discussion Portal</h2>
+            </div>
+        </div>
+        <div class="row justify-content-center" >
+            <div class="col-12 col-md-5 border-right bg-light">
+                <div class="row bg-white pt-3 justify-content-around align-items-center" >
+                    <button class="btn btn-primary" id="new-ques" style="background-color: rgb(90, 134, 14);">New Question Form</button>
+                    <button class="btn btn-warning px-5 mt-2 mt-sm-0" id="favs" style="background-color: rgb(90, 134, 14);color: white;">Favourites</button>
+                    <button class="btn btn-success px-4 mt-2 mt-sm-0 d-none" id="all">All Questions</button>
+                </div>
+                <div class="row bg-white pb-3 border-bottom justify-content-center align-items-center">
+                    <div class="col-12 mt-3 ">
+                        <input class="form-control" type="text" name="query" id="query" placeholder="Search Questions..." />
+                    </div>
+                </div>
+                <div class="row d-flex flex-column">
+                    <ul class="list-unstyled"></ul>
+                    <div class="col-12 d-none" id="no-match-found">
+                        <h3 class="text-center text-danger">Oops! No Match Found</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-7 p-5" id="welcome">
+                <h2 class="text-left">Welcome to Discussion Portal!</h2>
+                <p class="text-left">Enter a subject and question to get started</p>
+                <form id="question">
+                    <div class="form-group">
+                        <input type="text" name="subject" id="subject" class="form-control" placeholder="Subject" required />
+                    </div>
+                    <div class="form-group">
+                        <textarea rows="10" name="ques" id="question" class="form-control" placeholder="Question" required></textarea>
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        <button type="submit" class="btn btn-primary ml-auto" id="ques-submit" style="background-color: rgb(90, 134, 14);">Submit</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-12 col-md-7 p-5 d-none" id="response">
+                <h4 class="text-secondary">Question</h4>
+                <div id="ques-info"></div>
+                <div class="d-flex justify-content-end mt-2">
+                    <button class="btn btn-primary ml-auto" id="resolve" style="background-color: rgb(90, 134, 14);">Resolve</button>
+                </div>
+                <h4 class="text-secondary">Response</h4>
+                <div id="responseList"></div>
+                <h4 class="text-secondary mt-4 mb-2">Add Response</h4>
+                <form id="responseForm">
+                    <div class="form-group">
+                        <input type="text" name="username" id="username" class="form-control" placeholder="Enter Name" required />
+                    </div>
+                    <div class="form-group">
+                        <textarea rows="10" name="response" id="response" class="form-control" placeholder="Enter Comment" required ></textarea>
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        <button type="submit" class="btn btn-primary ml-auto" id="response-submit" style="background-color: rgb(90, 134, 14);">Submit</button>
+                    </div>
+                    <input type="hidden" name="qId" value="" id="pos"/>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+<script src='Community Discussion.js'></script>
+</html>
