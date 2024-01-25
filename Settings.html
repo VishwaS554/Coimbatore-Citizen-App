@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: rgb(226, 240, 190); /* light green background */
+        }
+
+        #settings-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff; /* white background for the container */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        #header {
+            background-color: #006400; /* dark green header background */
+            color: #fff; /* white header text color */
+            padding: 10px;
+            text-align: left;
+        }
+
+        #back-arrow {
+            font-size: 20px;
+            margin-right: 10px;
+            text-decoration: none; /* Remove underline from the anchor */
+            color: #fff; /* Set text color for the anchor */
+            cursor: pointer;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        select, input[type="checkbox"] {
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #006400;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="settings-container">
+        <div id="header">
+            <a id="back-arrow" href="Home.html">&larr;</a> Settings
+        </div>
+       <br>
+
+        <label for="theme">App Theme:</label>
+        <select id="theme">
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+        </select>
+
+        <label for="email">Email Settings:</label>
+        <input type="checkbox" id="email" checked>
+
+        <label for="sms">SMS Settings:</label>
+        <input type="checkbox" id="sms" checked>
+
+        <label for="alerts">Alerts:</label>
+        <input type="checkbox" id="alerts" checked>
+<br> <center>
+        <button onclick="saveSettings()" >Save Settings</button></center>
+    </div>
+
+    <script>
+        function saveSettings() {
+            const theme = document.getElementById('theme').value;
+            const emailSettings = document.getElementById('email').checked;
+            const smsSettings = document.getElementById('sms').checked;
+            const alerts = document.getElementById('alerts').checked;
+
+            // Implement logic to save settings to the backend or perform other actions
+            console.log('Settings saved:');
+            console.log('App Theme:', theme);
+            console.log('Email Settings:', emailSettings);
+            console.log('SMS Settings:', smsSettings);
+            console.log('Alerts:', alerts);
+        }
+    </script>
+</body>
+</html>
