@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<title>Add Report</title>
+
+<link rel="stylesheet" type="text/css" href="Add Report.css">
+
+<script src="https://kit.fontawesome.com/67c66657c7.js"></script>
+</head>
+<body>
+    
+<div class="container" style="margin-top: -300px;">
+<form >
+<h1>Give your Report</h1>
+<div class="radio">
+            <label for="Public">Public</label>
+            <input type="radio" name="mode" id="Public" required>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <label for="male">Private</label>
+            <input type="radio" name="mode" id="Private"    style=" background-color: #b3d147"></div><br>
+    <textarea cols="15" rows="5" placeholder="Enter your Report here.."></textarea>
+<div class="con">
+    <button type="Submit" class="btn" onclick="openPopup()">Send</button>
+    <div class="popup" id="popup">
+        <img src="tick.png">
+        <h2 style="color: black;font-family: 'poppins', sans-serif;">Thank You!</h2>
+        <p style="color: black;font-family: 'poppins', sans-serif;">Your Report has been successfully submitted.</p>
+        <button type="button" onclick="closePopup()">OK</button></div>
+    </div>
+</form> 
+</div>
+<script>
+    let popup = document.getElementById("popup");
+
+    function openPopup(){
+        popup.classList.add("open-popup");
+    }
+    function closePopup(){
+        popup.classList.remove("open-popup");
+    }
+
+</script>
+</body>
+</html>
