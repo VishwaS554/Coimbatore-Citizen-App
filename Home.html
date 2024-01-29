@@ -1,40 +1,128 @@
-    const button = document.querySelector("button");
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <style>
+        html { font-size: 22px; }
+body { padding: 1rem; }
+.card {
+  padding: 1rem;
+  height: 4rem;
+  font-size: 14px;
+  font-weight: 550;
+}
+.cards {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  gap: 1rem;
+}
+@media (min-width: 10px) {
+  .cards { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 600px) {
+  .cards { grid-template-columns: repeat(3, 1fr); }
+}
+@media (min-width: 900px) {
+  .cards { grid-template-columns: repeat(4, 1fr); }
+}
 
-    button.addEventListener("click", ()=>{
-        if(navigator.geolocation){ //if browser support geolocation api
-            button.innerText = "Allow to detect location";
-            // geolocation.getCurrentPosition method is used to get current position of the device
-            // it takes three paramaters success, error, options. If everything is right then success 
-            // callback function will call else error callback function will call. We don't need third paramater for this project
-            navigator.geolocation.getCurrentPosition(onSuccess, onError);
-        }else{
-            button.innerText = "Your browser not support";
-        }
-    });
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+  </head>
+  <body class="vh-100 overflow-hidden" style="background-color: rgb(226, 240, 190);">
+    <nav class="navbar bg-body-tertiary fixed-top">
+        <div class="container-fluid" style="background-color: rgb(90, 134, 14) ;">
+          <a class="navbar-brand"style=" color: white;">Home</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header" style="background-color: rgb(90, 134, 14) "; >
+              <h5 class="offcanvas-title" id="offcanvasNavbarLabel"></h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body" style="background-color: rgb(90, 134, 14);" >
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="profile.html" style="color: white;">Profile</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="Settings.html" style="color: white;">Settings</a>
+                </li>
+              </ul>
+              <form class="d-flex mt-3" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit" style="color: white;">Search</button>
+              </form>
+              <li class="nav-item">
+                <a class="nav-link" href="#" style="color: white;">About</a>
+              </li>
+            </div>
+          </div>
+        </div>
+      </nav><br><br><br><br>
+        <center>
+        <div class="cards">
+            <a href="Report.html" class="card" style="background-color:rgb(90, 134, 14) ;color: aliceblue;">Report</a>
+            <a href="Map.html" class="card" style="background-color:rgb(90, 134, 14) ;color: aliceblue;">Map</a>
+            <a href="Community Discussion.html" class="card" style="background-color:rgb(90, 134, 14) ;color: aliceblue;">Community Discussion</a>
+            <a href="Information Hub.html" class="card" style="background-color:rgb(90, 134, 14) ;color: aliceblue;">Information Hub</a>
+            <a href="Private Communication.html" class="card" style="background-color:rgb(90, 134, 14) ;color: aliceblue;">Private Communication</a>
+           <a href="Chat Bot.html" class="card" style="background-color:rgb(90, 134, 14) ;color: aliceblue;">Chat Bot</a>
+            <a href="Services.html" class="card" style="background-color:rgb(90, 134, 14) ;color: aliceblue;">Services</a>
+            <a href="Event Calender.html" class="card" style="background-color:rgb(90, 134, 14) ;color: aliceblue;">Event Calender</a>
+          </div>
+          <button id="emergencyAlertButton" class="btn btn-danger mt-3">Emergency Alert</button>
 
-    function onSuccess(position){
-        button.innerText = "Detecting your location...";
-        let {latitude, longitude} = position.coords; //getting latitude and longitude properties value from coords obj
-        //sending get request to the api with passing latitude and longitude coordinates of the user position
-        fetch(`https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=YOUR_API_KEY`)
-        //parsing json data into javascript object and returning it and in another then function receiving the object that is sent by the api
-        .then(response => response.json()).then(response =>{
-            let allDetails = response.results[0].components; //passing components object to allDetails variable
-            console.table(allDetails);
-            let {county, postcode, country} = allDetails; //getting country, postcode, country properties value from allDetails obj
-            button.innerText = `${county} ${postcode}, ${country}`; //passing these value to the button innerText
-        }).catch(()=>{ //if error any error occured
-            button.innerText = "Something went wrong";
+    <!-- JavaScript for emergency alert functionality -->
+    <script>
+        const button = document.getElementById("emergencyAlertButton");
+
+        button.addEventListener("click", () => {
+            if (navigator.geolocation) {
+                button.innerText = "Allow to detect location";
+                navigator.geolocation.getCurrentPosition(onSuccess, onError);
+            } else {
+                button.innerText = "Your browser does not support";
+            }
         });
-    }
 
-    function onError(error){
-        if(error.code == 1){ //if user denied the request
-            button.innerText = "You denied the request";
-        }else if(error.code == 2){ //if location in not available
-            button.innerText = "Location is unavailable";
-        }else{ //if other error occured
-            button.innerText = "Something went wrong";
+        function onSuccess(position) {
+            button.innerText = "Detecting your location...";
+            let { latitude, longitude } = position.coords;
+            fetch(`https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=YOUR_API_KEY`)
+                .then(response => response.json())
+                .then(response => {
+                    let allDetails = response.results[0].components;
+                    console.table(allDetails);
+                    let { county, postcode, country } = allDetails;
+                    button.innerText = `${county} ${postcode}, ${country}`;
+                })
+                .catch(() => {
+                    button.innerText = "Something went wrong";
+                });
         }
-        button.setAttribute("disabled", "true"); //disbaled the button if error occured
-    }
+
+        function onError(error) {
+            if (error.code == 1) {
+                button.innerText = "You denied the request";
+            } else if (error.code == 2) {
+                button.innerText = "Location is unavailable";
+            } else {
+                button.innerText = "Something went wrong";
+            }
+            button.setAttribute("disabled", "true");
+        }
+    </script>
+        </center>
+  </body>
+</html>
+
