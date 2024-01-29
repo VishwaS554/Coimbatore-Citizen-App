@@ -39,28 +39,32 @@ grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   </head>
   <body class="vh-100 overflow-hidden" style="background-color: rgb(226, 240, 190);">
     <nav class="navbar bg-body-tertiary fixed-top">
-        <div class="container-fluid" style="background-color: rgb(90, 134, 14) ;">
-          <a class="navbar-brand"style=" color: white;">Home</a>
+        <div class="container-fluid" style="background-color: rgb(90, 134, 14);">
+          <a class="navbar-brand" style="color: white;">Home</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-            <div class="offcanvas-header" style="background-color: rgb(90, 134, 14) "; >
+            <div class="offcanvas-header" style="background-color: rgb(90, 134, 14);">
               <h5 class="offcanvas-title" id="offcanvasNavbarLabel"></h5>
               <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
-            <div class="offcanvas-body" style="background-color: rgb(90, 134, 14);" >
+            <div class="offcanvas-body" style="background-color: rgb(90, 134, 14);">
               <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="profile.html" style="color: white;">Profile</a>
+                  <a class="nav-link active" aria-current="page" href="profile.html" style="color: white; text-decoration: none;">Profile</a>
+                </li>
+                <!-- Add Neighbours link -->
+                <li class="nav-item">
+                  <a class="nav-link" href="Neighbours.html" style="color: white; text-decoration: none;">Neighbours</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="Settings.html" style="color: white;">Settings</a>
+                  <a class="nav-link" href="settings.html" style="color: white; text-decoration: none;">Settings</a>
                 </li>
               </ul>
               <form class="d-flex mt-3" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit" style="color: white;">Search</button>
+                <button class="btn btn-outline-success" type="submit" style="color: white; text-decoration: none;">Search</button>
               </form>
               <li class="nav-item">
                 <a class="nav-link" href="#" style="color: white;">About</a>
@@ -68,17 +72,18 @@ grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             </div>
           </div>
         </div>
-      </nav><br><br><br><br>
+    </nav>
+    <br><br><br><br>
         <center>
         <div class="cards">
-            <a href="Report.html" class="card" style="background-color:rgb(90, 134, 14) ;color: aliceblue;">Report</a>
-            <a href="Map.html" class="card" style="background-color:rgb(90, 134, 14) ;color: aliceblue;">Map</a>
-            <a href="Community Discussion.html" class="card" style="background-color:rgb(90, 134, 14) ;color: aliceblue;">Community Discussion</a>
-            <a href="Information Hub.html" class="card" style="background-color:rgb(90, 134, 14) ;color: aliceblue;">Information Hub</a>
-            <a href="Private Communication.html" class="card" style="background-color:rgb(90, 134, 14) ;color: aliceblue;">Private Communication</a>
-           <a href="Chat Bot.html" class="card" style="background-color:rgb(90, 134, 14) ;color: aliceblue;">Chat Bot</a>
-            <a href="Services.html" class="card" style="background-color:rgb(90, 134, 14) ;color: aliceblue;">Services</a>
-            <a href="Event Calender.html" class="card" style="background-color:rgb(90, 134, 14) ;color: aliceblue;">Event Calender</a>
+            <a href="Report.html" class="card" style="background-color:rgb(90, 134, 14) ;color: aliceblue; text-decoration: none;">Report</a>
+            <a href="Map.html" class="card" style="background-color:rgb(90, 134, 14) ;color: aliceblue; text-decoration: none;">Map</a>
+            <a href="Community Discussion.html" class="card" style="background-color:rgb(90, 134, 14) ;color: aliceblue; text-decoration: none;">Community Discussion</a>
+            <a href="Information Hub.html" class="card" style="background-color:rgb(90, 134, 14) ;color: aliceblue; text-decoration: none;">Information Hub</a>
+            <a href="Private Communication.html" class="card" style="background-color:rgb(90, 134, 14) ;color: aliceblue; text-decoration: none;">Private Communication</a>
+           <a href="Chat Bot.html" class="card" style="background-color:rgb(90, 134, 14) ;color: aliceblue; text-decoration: none;">Chat Bot</a>
+            <a href="Services.html" class="card" style="background-color:rgb(90, 134, 14) ;color: aliceblue; text-decoration: none;">Services</a>
+            <a href="Event Calender.html" class="card" style="background-color:rgb(90, 134, 14) ;color: aliceblue; text-decoration: none;">Event Calender</a>
           </div>
           <button id="emergencyAlertButton" class="btn btn-danger mt-3">Emergency Alert</button>
 
@@ -125,4 +130,3 @@ grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         </center>
   </body>
 </html>
-
