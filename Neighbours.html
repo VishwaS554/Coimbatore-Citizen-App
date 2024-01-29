@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neighbours</title>
+    <style>
+        /* Basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(90, 134, 14); /* Greenish background color */
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color:rgb(226, 240, 190);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #090909; /* Dark greenish color */
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+        li:last-child {
+            border-bottom: none;
+        }
+        .add-friends-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: rgb(90, 134, 14); /* Blue button color */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .add-friends-btn:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+            border-radius: 8px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        /* Style for form inputs */
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="text"],
+        input[type="email"] {
+            width: calc(100% - 20px);
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button[type="submit"] {
+            background-color: rgb(90, 134, 14); /* Blue button color */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        button[type="submit"]:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+
+        /* Added theme styles */
+        body {
+            background-color: rgb(226, 240, 190); /* light green background */
+            margin: 20px;
+        }
+
+        #profile-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff; /* white background for the container */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        #header {
+            background-color: #006400; /* dark green header background */
+            color: #fff; /* white header text color */
+            padding: 10px;
+            text-align: left;
+        }
+
+        #back-arrow {
+            font-size: 20px;
+            margin-right: 10px;
+            text-decoration: none; /* Remove underline from the anchor */
+            color: #fff; /* Set text color for the anchor */
+            cursor: pointer;
+        }
+
+        #user-profile {
+            padding: 20px;
+            color: #006400; /* dark green text */
+            text-align: center; /* Center-align the content */
+        }
+
+        #user-profile img {
+            max-width: 50%;
+            height: auto;
+            border-radius: 50%;
+            display: block; /* Make the image a block element */
+            margin: 0 auto; /* Center the image horizontally */
+        }
+
+        h2 {
+            color: #006400; /* dark green heading */
+        }
+
+        p {
+            color: #006400; /* dark green text */
+        }
+
+        #edit-button {
+            margin-top: 10px;
+            cursor: pointer;
+            color: #24de24; /* dark green button text */
+            background:  #006400;
+            padding: 10px;
+            font-size: inherit;
+        }
+ 
+        #edit-form {
+            display: none;
+            padding: 20px;
+            background-color: #ffffff; /* white background for the form */
+            color: #006400; /* dark green text */
+        }
+
+        input {
+            margin-bottom: 10px;
+            padding: 8px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #006400; /* dark green button background */
+            color: #fff; /* white button text */
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Neighbours</h1>
+        <button class="add-friends-btn" onclick="openModal()">Add Friends</button>
+        <ul id="userList">
+            <!-- User list will be populated here -->
+        </ul>
+    </div>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Add Friend</h2>
+            <form id="friendForm">
+                <label for="aadharNumber">Aadhar Number:</label>
+                <input type="text" id="aadharNumber" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+                <center><button type="submit" onclick="submitFriendRequest()">Submit</button></center>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Function to open the modal
+        function openModal() {
+            const modal = document.getElementById('myModal');
+            modal.style.display = 'block';
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            const modal = document.getElementById('myModal');
+            modal.style.display = 'none';
+        }
+
+        // Function to handle friend request submission
+        function submitFriendRequest() {
+            const aadharNumber = document.getElementById('aadharNumber').value;
+            const email = document.getElementById('email').value;
+            // Here, you can implement the logic to handle the friend request submission,
+            // such as sending the data to a server or performing validation.
+            console.log('Aadhar Number:', aadharNumber);
+            console.log('Email:', email);
+            // Close the modal after submission
+            closeModal();
+        }
+    </script>
+    <script>
+      // Dummy user data for demonstration
+      const users = [
+          { id: 1, name: 'John Doe', distance: '5m' },
+          { id: 2, name: 'Jane Smith', distance: '10m' },
+          { id: 3, name: 'Alice Johnson', distance: '200m' },
+          { id: 4, name: 'Bob Brown', distance: '15m' },
+          { id: 5, name: 'Eve White', distance: '30m' }
+      ];
+
+      // Function to populate user list
+      function populateUserList(users) {
+          const userList = document.getElementById('userList');
+          userList.innerHTML = '';
+          users.forEach(user => {
+              const li = document.createElement('li');
+              li.textContent = `${user.name} (${user.distance})`;
+              userList.appendChild(li);
+          });
+      }
+
+      // Call the function to initially populate the user list
+      populateUserList(users);
+  </script>
+</body>
+</html>
